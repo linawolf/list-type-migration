@@ -1,0 +1,21 @@
+{
+    "name": "linawolf/list-type-migration",
+    "description": "List type to CType migration, backward compatible for TYPO3 v11 and v12",
+    "type": "typo3-cms-extension",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "require": {
+        "typo3/cms-core": "^11.5 || ^12.4 || ^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Linawolf\\ListTypeMigration\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "list_type_migration"
+        }
+    }
+}
