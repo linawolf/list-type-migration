@@ -511,9 +511,10 @@ case ${TEST_SUITE} in
         esac
         ;;
     lint)
-        COMMAND="find . -name \\*.php ! -path "./.Build/\\*" -print0 | xargs -0 -n1 -P4 php -dxdebug.mode=off -l >/dev/null"
+        COMMAND="find . -name 'Build' -prune -o -name \\*.php ! -path './.Build/\\*' -print0 | xargs -0 -n1 -P4 php -dxdebug.mode=off -l >/dev/null"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
+
         ;;
     phpstan)
         COMMAND="php -dxdebug.mode=off .Build/bin/phpstan --configuration=Build/phpstan/phpstan.neon"
