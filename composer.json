@@ -6,16 +6,37 @@
         "GPL-2.0-or-later"
     ],
     "require": {
-        "typo3/cms-core": "^11.5 || ^12.4 || ^13.0"
+        "php": "^7.4 || ^8.0 || ^8.1 || ^8.2 || ^8.3",
+        "typo3/cms-install": "^11.5 || ^12.4 || ^13.4"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.43",
+        "phpstan/phpstan": "^1.8.2",
+        "typo3/coding-standards": "*"
     },
     "autoload": {
         "psr-4": {
             "Linawolf\\ListTypeMigration\\": "Classes/"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "bin-dir": ".Build/bin",
+        "preferred-install": {
+            "typo3/cms-core": "source"
+        },
+        "sort-packages": true,
+        "vendor-dir": ".Build/vendor"
+    },
     "extra": {
         "typo3/cms": {
-            "extension-key": "list_type_migration"
+            "app-dir": ".Build",
+            "extension-key": "list_type_migration",
+            "web-dir": ".Build/Web"
         }
     }
 }
